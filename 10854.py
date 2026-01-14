@@ -17,7 +17,7 @@ for i in range(n):
         
     elif command[0] == "pop":
         if queue:
-            print(queue.popleft()) 
+            print(queue.popleft()) # 큐는 왼쪽(앞)에서 뺍니다.
         else:
             print(-1)
             
