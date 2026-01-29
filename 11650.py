@@ -10,7 +10,7 @@ for i in range(n):
     x,y = map(int, input( ).split())
     points.append((x,y))
     
-points.sort
+points.sort()
 
 for x,y in points:
     print(x,y)
