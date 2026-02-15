@@ -1,0 +1,37 @@
+import sys
+from collections import deque
+
+input = sys.stdin.readline
+t = int(input())
+
+for i in range(t):
+    p = input().rstrip()
+    n = int(input())
+    arr = input().rstrip()
+    if n == 0:
+        queue = deque()
+    else:
+        queue = deque(arr[1:-1].split(","))
+
+    rev, front, back = 0, 0, len(queue)-1
+    flag = 0
+
+    for j in p:
+        if j == 'R':
+            rev +=1
+        elif j == 'D':
+            if  len(queue) < 1:
+                flag = 1
+                print("error")
+                break
+            else:
+                if rev % 2 == 0:
+                    queue.popleft()
+                else:
+                    queue.pop()
+    if flag == 0:
+        if rev % 2 == 0:
+            print("["+ ",".join(queue)+ "]")
+        else:
+            queue.reverse()
+            print("["+ ",".join(queue)+ "]")
